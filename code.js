@@ -95,7 +95,7 @@ let wordslist=[
     hint:"space explorer"
     }
 ]
-
+let atef= document.getElementById("used")
 let guessed="";
 let incorrect="";
 let newword="";
@@ -108,7 +108,7 @@ let attempts=5-incorrect.length;
 document.body.innerHTML=document.body.innerHTML.replace('*',attempts)
 let updatedword=newword;
 
-console.log(current);
+
 
 
 document.body.innerHTML=document.body.innerHTML.replace('X',newword)
@@ -144,11 +144,14 @@ window.location.reload();
         check.value="";
         return;
        }
+
        if (current.word.includes(x)){ // code if correct guess
         y.innerText=`You guessed ${x} correctly!`;
         console.log(current.word.length);
         let indexes=[];
         let index;
+      
+     
         for (let i=0;i<current.word.length;i++){
             if (current.word[i]==x){
                 index=i;
@@ -162,16 +165,13 @@ window.location.reload();
             updatedword= replacechar(updatedword,indexes[i],x); 
             count++;
          } 
-         console.log(updatedword);
-         console.log(indexes);
+
          document.getElementById("displayword").innerText=updatedword;
          check.value="";
          guessed+=x;
-         console.log(updatedword);
-         console.log(current.word);
-         
-         console.log(count*2);
-         console.log(updatedword.length);
+         atef.textContent+=x;
+   
+         document.getElementById("used").innerText="Letters used: "+guessed;
          if (count*2==updatedword.length){
             y.innerText=`Well done! You won and only made ${5-attempts} mistakes.`;
           document.getElementById("line").innerText="Press the button to start a new game"
@@ -179,12 +179,14 @@ window.location.reload();
             document.getElementById("hint").innerText=`Did you know? ${current.hint}`;
         attempts=0;
         }
+       
         return;
        }
        
 y.innerText=`${x} is a wrong guess. Try again!`;
 incorrect=incorrect+x;
 attempts=5-incorrect.length;
+guessed+=x;
 if (attempts==0){
 
     y.innerText="Game over! You tried 5 guesses and you lost.";
@@ -193,17 +195,16 @@ if (attempts==0){
     document.getElementById("line").innerText=" ";
 
 }
+document.getElementById("used").innerText="Letters used: "+guessed;
 document.getElementById("line").innerText="You have "+ attempts +" attempts to guess the word!";
 check.value="";
-guessed+=x;
 
+atef.textContent+=x;
+console.log(atef);
 if (attempts<=2){
     let hinttext=document.getElementById("hint");
     hinttext.innerText=`Hint: ${current.hint}`;
 
 }
 } }
-// let game=document.getElementById("start");
-// start.addEventListener("submit", (e)=>{
-//     let player= document.getElementById("namebox");
-// })
+
