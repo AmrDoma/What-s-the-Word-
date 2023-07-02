@@ -1,0 +1,10 @@
+img{
+    position:relative;
+    width:25%;
+}
+#displayword{
+    position:relative;
+    bottom:50px;
+    text-align:center;
+    font-size:50px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's the word?</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> 
+    <link rel="stylesheet" type="text/css" href="gamestyles.css">
+    
+</head>
+<body>
+<div class="flexbox">
+<img src="title.png" width="40%">
+    <div class="container">
+      <div id="displayword">
+X
+      </div>
+            
+        <div id="line" class="paragraph">You have * attempts to guess the word!</div>
+<br>
+<input name="text" id="namebox" required placeholder="" maxlength="1"> 
+<input type="button" id="guess" class="button1" value="Guess!">
+<br>
+<p id="state" class="paragraph"></p>
+<p id="hint" class="paragraph"></p>
+    </div>
+</div>
+<script type="text/javascript" src="code.js"> </script>
+</body>
+</html>
